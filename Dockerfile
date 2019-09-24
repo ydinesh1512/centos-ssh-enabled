@@ -1,12 +1,7 @@
-FROM centos:7
+FROM kodekloud/centos-ssh-enabled
 
-RUN yum -y install initscripts && yum clean all
+RUN yum install -y wget
 
-RUN yum install -y openssh-server openssh-clients
+RUN wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm && rpm -ivh mysql-community-release-el7-5.noarch.rpm && yum -y update
 
-RUN echo 'root:Passw0rd' | chpasswd
-
-RUN /usr/bin/ssh-keygen -A
-
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+# kodekloud/centos-ssh-enabled:mysql
