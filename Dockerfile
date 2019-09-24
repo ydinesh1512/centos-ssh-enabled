@@ -1,4 +1,4 @@
-FROM kodekloud/centos-ssh-enabled
+FROM kodekloud/centos-ssh-enabled:service_module_web1
 
 RUN yum install -y wget
 
