@@ -1,5 +1,5 @@
 FROM kodekloud/centos-ssh-enabled
 
-RUN yum install -y wget && yum clean all
+RUN yum install -y sudo && yum clean all
 
-RUN wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm && rpm -ivh mysql-community-release-el7-5.noarch.rpm
+RUN adduser ansible && echo 'ansible' | passwd ansible && usermod -aG wheel ansible
