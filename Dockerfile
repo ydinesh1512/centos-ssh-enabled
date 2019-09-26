@@ -1,4 +1,4 @@
-FROM gcr.io/kodekloud/centos-ssh-enabled
+FROM gcr.io/kodekloud/centos-ssh-enabled:master
 
 RUN yum install -y sudo && yum clean all
 
