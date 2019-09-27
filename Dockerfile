@@ -8,4 +8,4 @@ RUN mkdir -p /var/log/ansible ; chown -R ansible:ansible /var/log/ansible
 
 RUN echo "ansible    ALL=(ALL)   NOPASSWD:ALL" >> /etc/sudoers
 
-CMD /usr/sbin/sshd -D
+ENTRYPOINT /usr/sbin/sshd -D
