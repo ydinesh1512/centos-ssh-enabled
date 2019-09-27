@@ -1,4 +1,4 @@
-FROM kodekloud/centos-ssh-enabled:master
+FROM gcr.io/kodekloud/centos-ssh-enabled:master
 
 RUN yum install -y wget && yum clean all
 
