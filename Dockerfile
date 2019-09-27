@@ -2,7 +2,7 @@ FROM gcr.io/kodekloud/centos-ssh-enabled:master
 
 RUN yum install -y sudo && yum clean all
 
-RUN adduser webuser && echo 'john:john' | chpasswd && usermod -aG wheel john
+RUN adduser john && echo 'john:john' | chpasswd && usermod -aG wheel john
 
 RUN echo "john    ALL=(ALL)   NOPASSWD:ALL" >> /etc/sudoers
 
