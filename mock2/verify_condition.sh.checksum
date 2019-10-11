@@ -1,0 +1,4 @@
+63d9a923d62f6e141538a08efc3df39e  mock2/bootstrap.sh
+6e46fd865a0f1174830fe54ef81c479d  mock2/get_latest_pip_pkg_versions.sh
+ef371a5907cbc70f51bc3f4b9c8f302c  mock2/verify_condition.sh
+3c82390998a5be66072f104232ffac2c  mock2/verify_condition.sh.checksum
