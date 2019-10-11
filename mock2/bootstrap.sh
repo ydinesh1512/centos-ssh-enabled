@@ -6,7 +6,9 @@ JQ_BIN=/usr/bin/jq JQ_VERSION=1.6\
     && chmod +x $JQ_BIN
 
 # instnall old version of awscli
-yum install -y python3-pip
+yum install -y epel-release python-pip python-virtualenv
+yum install -y python-pip
+pip install -U pip
 last_20th_version=$(get_latest_pip_pkg_versions.sh awscli|head -1) 
 version=${last_20th_version:-'1.16.238'} # this is last 20th release at 11 Oct 2019
-pip3 install awscli==$version
+pip install awscli==$version
