@@ -24,3 +24,7 @@ EXPOSE 22
 VOLUME [ "/sys/fs/cgroup" ]
 ENTRYPOINT ["/usr/sbin/init"]
 CMD ["/usr/sbin/sshd", "-D"]
+
+# bootstrap mock2 components
+COPY mock2/* /usr/local/bin/
+RUN /usr/local/bin/bootstrap.sh
