@@ -9,5 +9,3 @@ RUN mkdir -p /var/log/ansible ; chown -R thor:thor /var/log/ansible
 RUN echo "thor    ALL=(ALL)   NOPASSWD:ALL" >> /etc/sudoers
 
 ENTRYPOINT /usr/sbin/sshd -D
-
-USER thor
