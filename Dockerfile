@@ -17,7 +17,10 @@ RUN yum install -y openssh-server && yum clean all
 
 RUN echo 'root:Passw0rd' | chpasswd
 
-RUN /usr/bin/ssh-keygen -A
+# Add ansible user
+RUN yum install -y sudo && yum clean all
+RUN adduser ansible && echo 'ansible:ansible' | chpasswd && usermod -aG wheel ansible
+RUN echo "ansible    ALL=(ALL)   NOPASSWD:ALL" >> /etc/sudoers
 
 EXPOSE 22
 
