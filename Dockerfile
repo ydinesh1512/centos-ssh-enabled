@@ -10,6 +10,5 @@ RUN sed -i "s/udev_rules = 1/udev_rules = 0/g" /etc/lvm/lvm.conf
 
 EXPOSE 22
 
-VOLUME [ "/sys/fs/cgroup" ]
 ENTRYPOINT ["/usr/sbin/init"]
 CMD ["/usr/sbin/sshd", "-D"]
