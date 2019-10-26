@@ -1,26 +1,12 @@
-FROM centos:7
+FROM gcr.io/kodekloud/centos-ssh-enabled:master
 ENV container docker
-RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == \
-systemd-tmpfiles-setup.service ] || rm -f $i; done); \
-rm -f /lib/systemd/system/multi-user.target.wants/*;\
-rm -f /etc/systemd/system/*.wants/*;\
-rm -f /lib/systemd/system/local-fs.target.wants/*; \
-rm -f /lib/systemd/system/sockets.target.wants/*udev*; \
-rm -f /lib/systemd/system/sockets.target.wants/*initctl*; \
-rm -f /lib/systemd/system/basic.target.wants/*;\
-rm -f /lib/systemd/system/anaconda.target.wants/*;
 
 # For service command
-RUN yum -y install initscripts && yum clean all
+RUN yum -y install lvm2 e4fsprogs
 
-RUN yum install -y openssh-server && yum clean all
-
-RUN echo 'root:Passw0rd' | chpasswd
-
-# Add ansible user
-RUN yum install -y sudo && yum clean all
-RUN adduser ansible && echo 'ansible:ansible' | chpasswd && usermod -aG wheel ansible
-RUN echo "ansible    ALL=(ALL)   NOPASSWD:ALL" >> /etc/sudoers
+RUN sed -i 's/udev_sync = 1/udev_sync = 0/g' /etc/lvm/lvm.conf
+RUN sed -i 's/udev_rules = 1/udev_rules = 0/g' /etc/lvm/lvm.conf
+RUN pvcreate /dev/vdb1
 
 EXPOSE 22
 
