@@ -1,5 +1,7 @@
 FROM gcr.io/kodekloud/centos-ssh-enabled:master
 
+RUN sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
+
 RUN useradd loki && echo "loki:Mischi3f" | chpasswd
 
 RUN usermod -G wheel loki
