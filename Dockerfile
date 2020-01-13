@@ -1,4 +1,4 @@
-FROM kodekloud/centos-systemd-ssh-enabled:nfsserver
+FROM  kodekloud/centos-systemd-ssh-enabled:nfsserver
 
 RUN sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
 
