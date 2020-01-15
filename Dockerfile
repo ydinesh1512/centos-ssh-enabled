@@ -1,4 +1,4 @@
-FROM kodekloud:haproxy
+FROM kodekloud/haproxy
 
 RUN sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
 
