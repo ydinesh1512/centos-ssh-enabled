@@ -10,4 +10,4 @@ RUN rm -rf /var/run/nologin
 
 RUN yum install -y epel-release
 
-RUN yum install -y sudo iptables-services httpd nginx
+RUN yum install -y sudo firewalld httpd nginx
