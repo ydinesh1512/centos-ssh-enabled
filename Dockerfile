@@ -1,6 +1,6 @@
 FROM gcr.io/kodekloud/centos-ssh-enabled:master
 RUN sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
-RUN useradd tony && echo "banner:BigGr33n" | chpasswd
+RUN useradd banner && echo "banner:BigGr33n" | chpasswd
 RUN useradd eric && echo "eric:eric" | chpasswd
 RUN useradd jerome && echo "jerome:jerome" | chpasswd
 RUN usermod -G wheel tony
