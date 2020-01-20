@@ -2,10 +2,8 @@ FROM gcr.io/kodekloud/centos-ssh-enabled:master
 
 RUN sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
 
-RUN useradd groot && echo "groot:Gr00T123" | chpasswd
+RUN useradd tony && echo "tony:Ir0nM@n" | chpasswd
 
-RUN usermod -G wheel groot
+RUN usermod -G wheel tony
 
-RUN yum -y install postfix
-
-CMD sed -i 's/#inet_interfaces = all/inet_interfaces = all/g' /etc/postfix/main.cf 
+RUN rm -rf /var/run/nologin
