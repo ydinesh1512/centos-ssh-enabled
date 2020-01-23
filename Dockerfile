@@ -1,10 +1,10 @@
-FROM kodekloud/haproxy
+FROM kodekloud/centos-systemd-ssh-enabled
 
 RUN useradd loki && echo "loki:Mischi3f" | chpasswd
 
 RUN usermod -G wheel loki
 
-RUN yum install openssh-server openssh-clients -y
+RUN yum install openssh-server openssh-clients  haproxy -y
 
 RUN sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
 
@@ -20,9 +20,5 @@ ENV WEB_APP3_PORT $WEB_APP3_PORT
 
 COPY haproxy.conf /etc/
 
-COPY entrypoint.sh /
-
 EXPOSE ${BIND_PORT}
-
-ENTRYPOINT /entrypoint.sh
 
