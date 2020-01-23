@@ -1,4 +1,4 @@
-FROM kodekloud/haproxy
+FROM kodekloud/centos-systemd-ssh-enabled
 
 RUN useradd loki && echo "loki:Mischi3f" | chpasswd
 
@@ -9,6 +9,8 @@ RUN yum install openssh-server openssh-clients -y
 RUN sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
 
 RUN ssh-keygen -A
+
+RUN yum install haproxy -y
 
 ENV BIND_PORT $BIND_PORT
 ENV WEB_APP1 $WEB_APP1
