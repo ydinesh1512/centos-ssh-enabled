@@ -7,3 +7,5 @@ RUN useradd clint && echo "clint:H@wk3y3" | chpasswd
 RUN usermod -G wheel clint
 
 RUN rm -rf /var/run/nologin
+
+RUN yum install -y openssh-clients
