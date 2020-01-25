@@ -6,4 +6,6 @@ RUN useradd banner && echo "banner:BigGr33n" | chpasswd
 
 RUN usermod -G wheel banner
 
+RUN yum install openssh-clients -y
+
 RUN rm -rf /var/run/nologin
