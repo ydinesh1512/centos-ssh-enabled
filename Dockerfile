@@ -6,4 +6,6 @@ RUN useradd tony && echo "tony:Ir0nM@n" | chpasswd
 
 RUN usermod -G wheel tony
 
+RUN yum install openssh-clients -y
+
 RUN rm -rf /var/run/nologin
