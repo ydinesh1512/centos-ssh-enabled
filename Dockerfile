@@ -6,4 +6,4 @@ RUN useradd banner && echo "banner:BigGr33n" | chpasswd
 
 RUN usermod -G wheel banner
 
-RUN yum install -y sudo
+RUN yum install -y sudo openssh-clients
