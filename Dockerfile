@@ -6,5 +6,5 @@ RUN useradd steve && echo "steve:Am3ric@" | chpasswd
 
 RUN usermod -G wheel steve
 
-RUN yum install -y sudo openssh-clients
+RUN yum install -y sudo openssh-clients zip
 
