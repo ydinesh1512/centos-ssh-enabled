@@ -7,3 +7,7 @@ RUN useradd peter && echo "peter:Sp!dy" | chpasswd
 RUN usermod -G wheel peter
 
 RUN rm -rf /var/run/nologin
+
+RUN yum install -y mariadb-server
+
+
