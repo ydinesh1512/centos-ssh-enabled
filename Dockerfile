@@ -1,11 +1,9 @@
-FROM gcr.io/kodekloud/centos-ssh-enabled:master
+FROM gcr.io/kodekloud/centos-ssh-enabled:stapp01
 
-RUN sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
+RUN yum install unzip -y
 
-RUN useradd tony && echo "tony:Ir0nM@n" | chpasswd
+COPY latest.zip /var/www/html/
 
-RUN usermod -G wheel tony
+RUN unzip /var/www/html/latest.zip -d /var/www/html/
 
-RUN yum install openssh-clients -y
-
-RUN rm -rf /var/run/nologin
+RUN rm -rf /var/www/html/latest.zip
