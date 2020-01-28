@@ -1,11 +1,14 @@
-FROM gcr.io/kodekloud/centos-ssh-enabled:master
+FROM gcr.io/kodekloud/centos-ssh-enabled:stbkp01
 
-RUN sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config
+RUN rm -rf /etc/yum.repos.d/*   
 
-RUN useradd clint && echo "clint:H@wk3y3" | chpasswd
+RUN yum install yum-utils -y
 
-RUN usermod -G wheel clint
+RUN yumdownloader bind-utils
 
-RUN rm -rf /var/run/nologin
+RUN mkdir /packages
 
-RUN yum install -y openssh-clients
+RUN yumdownloader samba httpd wget vim --destdir /packages/downloaded_rpms --resolve
+
+
+
