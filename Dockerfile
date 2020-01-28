@@ -1,4 +1,4 @@
-FROM gcr.io/kodekloud/centos-ssh-enabled:stapp01
+FROM gcr.io/kodekloud/centos-ssh-enabled:stapp02
 
 RUN yum install unzip -y
 
